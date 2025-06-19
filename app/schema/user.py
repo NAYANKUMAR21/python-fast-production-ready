@@ -1,4 +1,7 @@
 from pydantic import BaseModel, Field, EmailStr,constr
+# ... => required
+# None => is not required
+
 class UserCreate(BaseModel):
     name:str= Field(..., min_length=3, max_length=100)
     email:EmailStr = Field(..., example="johndoe@gmail.com", description="Please add email only" )
@@ -16,7 +19,4 @@ class UserUpdate(BaseModel):
         description="Optional user biography")
 
 
-class UserResponse(BaseModel):
-    id: int
-    class config:
-        from_attributes=True
+# 
